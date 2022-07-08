@@ -7,10 +7,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from "expo-image-picker";
 console.log(ImagePicker)
 
-export default function Profile(){
+export default function Profile(props){
     const {user, setUser} = useContext(UserContext);
     const windowsSize = useWindowDimensions();
-
+    console.log('props'+props)
     async function pickImage(){
         const image = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -23,11 +23,14 @@ export default function Profile(){
                 avatar: image})
         }
     }
+    function goCam(){
+        props.navigation.push("cam");
+    }
 
 
     return(
         <View style= {[styles.superContainer, {height: windowsSize.height}]}>
-            <View style={styles.avatarContainer}>
+            <View>
                 <View>
                     <Image style={{width: 300, height:300}}source={user.avatar?user.avatar:defaultAvatar}></Image>
                 </View>               
@@ -36,7 +39,7 @@ export default function Profile(){
                     <TouchableOpacity onPress={pickImage}>
                         <MaterialIcons name="photo-library" size={50} color="black" />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress ={goCam}>
                         <MaterialIcons name="camera-alt" size={50} color="black" />
                     </TouchableOpacity>
                 </View>
