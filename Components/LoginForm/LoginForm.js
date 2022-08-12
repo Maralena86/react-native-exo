@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput} from 'react-native';
 import Button from '../UI/Button/Button';
 import { SimpleLineIcons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons'; 
 import P from '../UI/P/P';
 import InputWithError from '../UI/InputWithError/InputWithError';
 

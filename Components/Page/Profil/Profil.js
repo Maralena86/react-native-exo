@@ -10,7 +10,7 @@ console.log(ImagePicker)
 export default function Profile(props){
     const {user, setUser} = useContext(UserContext);
     const windowsSize = useWindowDimensions();
-    console.log('props'+props)
+
     async function pickImage(){
         const image = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
